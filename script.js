@@ -1,8 +1,16 @@
 const container=document.querySelector("#container");
 container.style.visibility="hidden";
-let size=parseInt(prompt("Enter Grid Size : "));
-if(size>0)
-create_grid(size);
+function input(){
+   let size=parseInt(prompt("Enter Grid Size : "));
+   if(!isNaN(size)){
+      create_grid(size);
+   }
+   else{
+      window.alert("Invalid Entry, Please Try Again");
+      input();
+
+   }
+}
 function create_grid(size){
    container.innerHTML="";
    for(let i=0;i<size;i++) //create no. of rows
@@ -14,7 +22,7 @@ function create_grid(size){
    const row=document.querySelectorAll(".col");
    row.forEach(box=>{
       for(i=0;i<size;i++){
-         const newDiv=document.createElement("div");
+         let newDiv=document.createElement("div");
          newDiv.classList.add("grid");
          box.appendChild(newDiv);
          newDiv.addEventListener('mouseover',()=>{
@@ -24,7 +32,7 @@ function create_grid(size){
    })
    container.style.visibility="visible";
 }
-function refresh(){
+function changeGridSize(){
    location.reload();
 }
 function resetColor(){
@@ -33,3 +41,29 @@ function resetColor(){
       declr.style.backgroundColor="";
    })
 }
+function changeColor(){
+   let color=prompt("Enter Colour : ")
+   resetColor();
+   const decolor=document.querySelectorAll(".grid");
+   decolor.forEach(div=>{
+      div.addEventListener('mouseover',()=>{
+         div.style.backgroundColor=color;
+      })
+   })
+}
+function randomColor(){
+   resetColor();
+   const decolor=document.querySelectorAll(".grid");
+   decolor.forEach(div=>{
+      div.addEventListener('mouseover',()=>{
+         div.style.backgroundColor=colors();
+      })
+   })   
+}
+function colors(){
+   const red = Math.floor(Math.random() * 256); // Random number between 0 and 255
+   const green = Math.floor(Math.random() * 256);
+   const blue = Math.floor(Math.random() * 256);
+   return `rgb(${red}, ${green}, ${blue})`;
+}
+input();

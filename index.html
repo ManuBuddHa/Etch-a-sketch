@@ -10,11 +10,20 @@
    <center><h1>Etch-a-Sketch</h1></center>
    <br>
    <div class="buttons">
-      <button onclick="resetColor()">Reset</button>
-      <button onclick="refresh()">Change Grid Size</button>
+      <button onclick="resetColor()" class="reset">Reset</button>
+      <button onclick="changeGridSize()" class="size">Change Grid Size</button>
+      <button onclick="changeColor()" class="color">Change Colour</button>
+      <button onclick="randomColor()" class="random">Random Colours</button>
       <br><br>
    </div>
    <div id="container"></div>
+   <footer>
+      <p>This project is submitted as a part of Learing in The Odin Project by <br><span>Manukrishna M S</span></p><br>
+      <div class="links">
+         <a href="http://www.linkedin.com/in/manu-buddha">LinkedIn</a>|
+         <a href="http://github.com/ManuBuddHa">GitHub</a>
+      </div>
+   </footer>
    <script src="script.js"></script>
 </body>
 </html>
