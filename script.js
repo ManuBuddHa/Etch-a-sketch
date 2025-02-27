@@ -1,6 +1,5 @@
 const container=document.querySelector("#container");
 let size=document.getElementById("size");
-grid=size.value;
 const color=document.getElementById("color");
 function create_grid(size){
    container.innerHTML="";
@@ -22,6 +21,7 @@ function create_grid(size){
 
 }
 function generate(){
-   console.log("Clicked");
-   create_grid();
+   let grid=size.value;
+   console.log(grid);
+   create_grid(grid);
 }
