@@ -1,6 +1,7 @@
 const container=document.querySelector("#container");
-let size=document.getElementById("size");
-const color=document.getElementById("color");
+container.style.visibility="hidden";
+let size=parseInt(prompt("Enter Grid Size : "));
+create_grid(size);
 function create_grid(size){
    container.innerHTML="";
    for(let i=0;i<size;i++) //create no. of rows
@@ -18,10 +19,5 @@ function create_grid(size){
          box.appendChild(newDiv);
       }
    })
-
-}
-function generate(){
-   let grid=size.value;
-   console.log(grid);
-   create_grid(grid);
+   container.style.visibility="visible";
 }
